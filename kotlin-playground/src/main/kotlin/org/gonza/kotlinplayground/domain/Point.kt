@@ -9,7 +9,7 @@ data class Point(
     }
 
     init {
-        if (x < MIN_VALUE || y < MIN_VALUE) {
+        require (x >= MIN_VALUE && y >= MIN_VALUE) {
             throw IllegalArgumentException("올바른 값이 아닙니다")
         }
     }
