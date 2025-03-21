@@ -7,7 +7,6 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 
 class PointTest {
-
     @Test
     fun `x, y 값을 가진다`() {
         val xValue = 1
@@ -28,7 +27,10 @@ class PointTest {
         "1, 1000",
         "10000, 1000000",
     )
-    fun `Point의 x,y는 0이상의 정수이다`(x: Int, y: Int) {
+    fun `Point의 x,y는 0이상의 정수이다`(
+        x: Int,
+        y: Int,
+    ) {
         val point = Point(x = x, y = y)
 
         assertThat(point).isNotNull
@@ -43,8 +45,12 @@ class PointTest {
         "-1, -1",
         "1, -1",
     )
-    fun `Point의 x,y에 음수가 들어가면 에러가 발생한다`(x: Int, y: Int) {
-        Assertions.assertThatThrownBy { Point(x = x, y = y) }
+    fun `Point의 x,y에 음수가 들어가면 에러가 발생한다`(
+        x: Int,
+        y: Int,
+    ) {
+        Assertions
+            .assertThatThrownBy { Point(x = x, y = y) }
             .isInstanceOf(IllegalArgumentException::class.java)
             .hasMessage("올바른 값이 아닙니다")
     }
