@@ -1,10 +1,20 @@
 package org.gonza.kotlinplayground.player
 
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertDoesNotThrow
 import org.junit.jupiter.api.assertThrows
 import kotlin.test.assertEquals
 
 class LadderGamePlayerTest {
+    @Test
+    fun `플레이어 이름이 5글자 일 수 있다`() {
+        val fiveLengthName = "a".repeat(5);
+
+        assertDoesNotThrow {
+            LadderGamePlayer(fiveLengthName, 1)
+        }
+    }
+
     @Test
     fun `플레이어 이름은 5글자 이하이어야한다`() {
         val sixLengthName = "a".repeat(6);

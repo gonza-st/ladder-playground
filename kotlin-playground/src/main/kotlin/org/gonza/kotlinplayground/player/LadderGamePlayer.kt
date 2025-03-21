@@ -20,7 +20,7 @@ class LadderGamePlayer(
             throw IllegalArgumentException("이름에 공백 문자열만 사용할 수 없습니다.")
         }
 
-        if (name.length >= MAX_NAME_LENGTH) {
+        if (name.length > MAX_NAME_LENGTH) {
             throw IllegalArgumentException("이름은 5글자이하만 가능합니다.")
         }
 
