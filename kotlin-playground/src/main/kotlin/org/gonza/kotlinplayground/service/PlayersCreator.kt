@@ -1,5 +1,6 @@
 package org.gonza.kotlinplayground.service
 
+import org.gonza.kotlinplayground.domain.Player
 import org.gonza.kotlinplayground.domain.Players
 
 class PlayersCreator {
@@ -8,7 +9,9 @@ class PlayersCreator {
 
         validatePlayerNameList(playerNameList)
 
-        return Players(emptyList())
+        val playerList = createPlayerList(playerNameList)
+
+        return Players(playerList)
     }
 
     private fun validatePlayerNameList(splitPlayerList: List<String>) {
@@ -23,4 +26,6 @@ class PlayersCreator {
     }
 
     private fun splitPlayerName(allPlayerName: String): List<String> = allPlayerName.split(",")
+
+    private fun createPlayerList(allNameList: List<String>): List<Player> = allNameList.map { Player(it) }
 }

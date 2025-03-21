@@ -2,6 +2,7 @@ package org.gonza.kotlinplayground.service
 
 import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
 class PlayersCreatorTest {
     @Test
@@ -20,13 +21,15 @@ class PlayersCreatorTest {
 
     @Test
     fun `입력한 이름으로 플레이어를 생성할 수 있다`() {
-        // given
-        val inputName = "test,pobi"
+        val testName = "test"
+        val pobiName = "pobi"
+        val inputName = "$testName,$pobiName"
         val playersCreator = PlayersCreator()
 
-        // when
         val players = playersCreator.create(inputName)
+        val nameList = players.getNameList()
 
-        // then
+        assertEquals(nameList[0], testName)
+        assertEquals(nameList[1], pobiName)
     }
 }
