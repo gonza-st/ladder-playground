@@ -1,5 +1,9 @@
 package org.gonza.kotlinplayground.domain.exception
 
-abstract class DomainException(
+sealed class DomainException(
     override val message: String,
-) : RuntimeException(message)
+) : RuntimeException(message) {
+    class EmptyPlayerListException(
+        message: String = "유저 목록은 비어있을 수 없습니다.",
+    ) : DomainException(message)
+}

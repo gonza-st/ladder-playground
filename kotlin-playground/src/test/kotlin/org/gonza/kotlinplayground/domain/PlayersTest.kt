@@ -1,6 +1,7 @@
 package org.gonza.kotlinplayground.domain
 
 import org.assertj.core.api.Assertions.*
+import org.gonza.kotlinplayground.domain.exception.DomainException
 import org.junit.jupiter.api.Test
 
 class PlayersTest {
@@ -12,6 +13,6 @@ class PlayersTest {
             Players(
                 playerList = emptyList,
             )
-        }.isInstanceOf(IllegalArgumentException::class.java)
+        }.isInstanceOf(DomainException.EmptyPlayerListException::class.java)
     }
 }
