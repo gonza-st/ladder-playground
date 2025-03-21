@@ -1,7 +1,7 @@
 package org.gonza.kotlinplayground.domain
 
 class Player(
-    private val name: String,
+    val name: String,
 ) {
     init {
         require(name.length <= 5) {

@@ -17,4 +17,16 @@ class PlayersCreatorTest {
             playersCreator.create(whiteSpaceWithSplit)
         }.isInstanceOf(IllegalArgumentException::class.java)
     }
+
+    @Test
+    fun `입력한 이름으로 플레이어를 생성할 수 있다`() {
+        // given
+        val inputName = "test,pobi"
+        val playersCreator = PlayersCreator()
+
+        // when
+        val players = playersCreator.create(inputName)
+
+        // then
+    }
 }
