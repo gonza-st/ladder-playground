@@ -45,6 +45,7 @@ class PointTest {
         "-1, -1",
         "1, -1",
     )
+
     fun `Point의 x,y에 음수가 들어가면 에러가 발생한다`(
         x: Int,
         y: Int,
@@ -53,5 +54,18 @@ class PointTest {
             .assertThatThrownBy { Point(x = x, y = y) }
             .isInstanceOf(IllegalArgumentException::class.java)
             .hasMessage("올바른 값이 아닙니다")
+    }
+
+    @Test
+    fun `Point는 x,y,direction 값으로 생성할 수 있다`() {
+        val xValue = 1
+        val yValue = 2
+
+        val point = Point(x = xValue, y = yValue, direction = Direction.BELOW)
+
+        assertThat(point).isNotNull
+        assertThat(point).hasFieldOrProperty("x")
+        assertThat(point).hasFieldOrProperty("y")
+        assertThat(point).hasFieldOrProperty("direction")
     }
 }
