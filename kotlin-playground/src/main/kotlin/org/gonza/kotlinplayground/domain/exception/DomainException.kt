@@ -7,7 +7,7 @@ sealed class DomainException(
         message: String = "유저 목록은 비어있을 수 없습니다.",
     ) : DomainException(message)
 
-    class EmptyDirectionListException(
-        message: String = "방향 목록은 비어있을 수 없습니다.",
+    class BridgeHeightOverZeroException(
+        message: String = "다리의 높이는 0 보다 커야합니다.",
     ) : DomainException(message)
 }

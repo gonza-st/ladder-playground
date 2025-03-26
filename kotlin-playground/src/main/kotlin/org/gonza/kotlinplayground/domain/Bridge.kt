@@ -1,13 +1,9 @@
 package org.gonza.kotlinplayground.domain
 
-import org.gonza.kotlinplayground.domain.exception.DomainException
+sealed class Bridge {
+    class LeftBridge : Bridge()
 
-class Bridge(
-    private val directions: List<Direction>,
-) {
-    init {
-        require(directions.isNotEmpty()) {
-            throw DomainException.EmptyDirectionListException()
-        }
-    }
+    class RightBridge : Bridge()
+
+    class StraightBridge : Bridge()
 }
